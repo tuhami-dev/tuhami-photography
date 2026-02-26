@@ -60,9 +60,9 @@ function ServiceCard({ src, alt, title, description, featured, tall }: ServiceIt
     <div
       className={[
         "group relative overflow-hidden rounded-2xl bg-stone-900",
-        "shadow-sm ring-1 ring-black/10",
-        "transition-all duration-300 ease-out",
-        "hover:-translate-y-0.5 hover:shadow-lg",
+        "shadow-md ring-1 ring-black/10",
+        "transform-gpu will-change-transform",
+        "transition-transform duration-300 ease-out hover:-translate-y-0.5",
         aspectClass,
       ].join(" ")}
     >
@@ -71,7 +71,7 @@ function ServiceCard({ src, alt, title, description, featured, tall }: ServiceIt
         src={src}
         alt={alt}
         fill
-        className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+        className="object-cover transform-gpu will-change-transform backface-hidden transition-transform duration-300 ease-out group-hover:scale-[1.03]"
         sizes={
           featured
             ? "(max-width: 1024px) 100vw, 66vw"

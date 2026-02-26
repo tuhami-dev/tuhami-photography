@@ -96,14 +96,14 @@ export default function Portfolio({
           <button
             type="button"
             onClick={() => openLightbox(0)}
-            className="group relative block h-[50vh] w-full overflow-hidden rounded-2xl bg-stone-100 shadow-md transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 sm:h-[60vh] lg:h-[75vh]"
+            className="group relative block h-[50vh] w-full overflow-hidden rounded-2xl bg-stone-100 shadow-md focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 sm:h-[60vh] lg:h-[75vh]"
             aria-label={`View ${hero.alt} in gallery`}
           >
             <Image
               src={hero.src}
               alt={hero.alt}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+              className="object-cover transform-gpu will-change-transform backface-hidden transition-transform duration-200 ease-linear group-hover:scale-[1.02]"
               sizes="100vw"
               quality={90}
             />
@@ -124,7 +124,7 @@ export default function Portfolio({
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                className="object-cover transform-gpu will-change-transform backface-hidden transition-transform duration-200 ease-linear group-hover:scale-[1.02]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 quality={90}
               />
