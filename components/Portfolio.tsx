@@ -96,16 +96,20 @@ export default function Portfolio({
           <button
             type="button"
             onClick={() => openLightbox(0)}
-            className="group relative block h-[50vh] w-full overflow-hidden rounded-2xl bg-stone-100 shadow-md focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 sm:h-[60vh] lg:h-[75vh]"
+            className="group relative block h-[50vh] w-full cursor-pointer overflow-hidden rounded-2xl bg-stone-100 shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:h-[60vh] lg:h-[75vh]"
             aria-label={`View ${hero.alt} in gallery`}
           >
             <Image
               src={hero.src}
               alt={hero.alt}
               fill
-              className="object-cover transform-gpu will-change-transform backface-hidden transition-transform duration-200 ease-linear group-hover:scale-[1.02]"
+              className="object-cover transform-gpu will-change-transform backface-hidden transition-transform duration-300 ease-out group-hover:scale-[1.03]"
               sizes="100vw"
               quality={90}
+            />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-white/[0.06] opacity-0 transition-opacity duration-250 ease-out group-hover:opacity-100"
             />
           </button>
         </div>
@@ -117,16 +121,20 @@ export default function Portfolio({
               key={`${img.src}-${i}`}
               type="button"
               onClick={() => openLightbox(i + 1)}
-              className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-stone-100 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
+              className="group relative aspect-[4/5] w-full cursor-pointer overflow-hidden rounded-2xl bg-stone-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
               aria-label={`View ${img.alt} in gallery`}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover transform-gpu will-change-transform backface-hidden transition-transform duration-200 ease-linear group-hover:scale-[1.02]"
+                className="object-cover transform-gpu will-change-transform backface-hidden transition-transform duration-300 ease-out group-hover:scale-[1.03]"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 quality={90}
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-white/[0.06] opacity-0 transition-opacity duration-250 ease-out group-hover:opacity-100"
               />
             </button>
           ))}

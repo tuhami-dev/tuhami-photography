@@ -26,7 +26,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 bg-stone-50">
+    <section id="how-it-works" className="py-24 bg-stone-50">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-14">
@@ -44,16 +44,10 @@ export default function HowItWorks() {
 
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {/* Connector line — desktop only */}
-          <div
-            className="hidden md:block absolute top-10 left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px bg-gradient-to-r from-transparent via-stone-200 to-transparent"
-            aria-hidden="true"
-          />
-
           {steps.map((step) => {
             const Icon = step.icon;
             return (
-              <div key={step.number} className="flex flex-col items-start">
+              <div key={step.number} className="relative z-10 flex flex-col items-start">
                 {/* Number + icon */}
                 <div className="relative mb-6">
                   <div className="w-20 h-20 rounded-2xl bg-white border border-stone-200 shadow-sm flex items-center justify-center">

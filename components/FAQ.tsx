@@ -42,22 +42,29 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   return (
     <div className="border-b border-stone-200 last:border-0">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 py-5 text-left"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setOpen(!open);
+          }
+        }}
         aria-expanded={open}
+        className="group w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer rounded-sm transition-colors duration-200 ease-out hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
       >
-        <span className="font-semibold text-stone-900 text-base pr-4">
+        <span className="font-semibold text-stone-900 text-base pr-4 transition-colors duration-200 ease-out group-hover:text-stone-700">
           {question}
         </span>
         <ChevronDown
           size={18}
-          className={`shrink-0 text-stone-400 transition-transform duration-200 ${
+          className={`shrink-0 text-stone-400 transition-all duration-200 ease-out group-hover:text-stone-600 ${
             open ? "rotate-180" : ""
           }`}
         />
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ${
+        className={`overflow-hidden transition-all duration-300 ease-out ${
           open ? "max-h-64 pb-5" : "max-h-0"
         }`}
       >

@@ -59,7 +59,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <Quote size={18} className="text-stone-300 mb-3" />
+              <Quote size={18} className="text-brand mb-3" />
               <p className="text-stone-600 text-base leading-relaxed flex-grow mb-6">
                 {t.quote}
               </p>
