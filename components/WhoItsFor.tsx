@@ -39,7 +39,7 @@ export default function WhoItsFor() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">
+          <p className="text-brand text-sm font-semibold tracking-widest uppercase mb-3">
             What We Shoot
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-4">
@@ -61,7 +61,7 @@ export default function WhoItsFor() {
                 className="group p-7 rounded-2xl border border-stone-100 bg-stone-50 hover:border-stone-200 hover:bg-stone-100/80 transition-all duration-300"
               >
                 <div className="w-11 h-11 rounded-xl bg-stone-200 flex items-center justify-center mb-5 group-hover:bg-stone-300 transition-colors">
-                  <Icon size={20} className="text-accent" />
+                  <Icon size={20} className="text-brand" />
                 </div>
                 <h3 className="font-semibold text-stone-900 text-lg mb-2">
                   {service.title}
@@ -88,7 +88,7 @@ export default function WhoItsFor() {
             </div>
             <a
               href="#contact"
-              className="mt-7 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-accent hover:bg-accent-hover text-white text-sm font-semibold transition-colors"
+              className="mt-7 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white text-sm font-semibold transition-colors"
             >
               Get in Touch
             </a>

@@ -74,7 +74,7 @@ export default function FAQ() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-14">
           {/* Left column */}
           <div>
-<p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">
+<p className="text-brand text-sm font-semibold tracking-widest uppercase mb-3">
             Got Questions?
             </p>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-4">

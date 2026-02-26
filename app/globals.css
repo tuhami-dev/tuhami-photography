@@ -8,8 +8,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent: #2F4F6F;
-  --color-accent-hover: #3d5f7f;
+  /* Single brand blue (#4F86C6) — hero text, CTAs, links, accents */
+  --color-brand: #4F86C6;
+  --color-brand-hover: #6b9dd4;
+  --color-accent: var(--color-brand);
+  --color-accent-hover: var(--color-brand-hover);
+  --color-accent-link: var(--color-brand);
+  --color-accent-link-hover: var(--color-brand-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-playfair);

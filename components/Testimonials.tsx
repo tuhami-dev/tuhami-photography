@@ -33,7 +33,7 @@ export default function Testimonials() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">
+          <p className="text-brand text-sm font-semibold tracking-widest uppercase mb-3">
             What Clients Say
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-4">
@@ -54,7 +54,7 @@ export default function Testimonials() {
               {/* Stars */}
               <div className="flex items-center gap-1 mb-5">
                 {Array.from({ length: t.rating }).map((_, i) => (
-                  <Star key={i} size={14} className="fill-accent text-accent" />
+                  <Star key={i} size={14} className="fill-brand text-brand" />
                 ))}
               </div>
 

@@ -3,21 +3,21 @@ import { ArrowRight, ExternalLink, Clock, Camera, MessageCircle } from "lucide-r
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center bg-stone-950 overflow-hidden">
-      {/* Background texture */}
+      {/* Background image — for sharper result use a larger SmugMug size (e.g. /X3/ or /Original/ in path) */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
+        className="absolute inset-0 bg-cover bg-center opacity-50"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1511895426328-dc8714191011?auto=format&fit=crop&w=1800&q=80')",
+            "url('https://photos.smugmug.com/People/Branch-Family-Fall-2023/i-v2WStdn/0/MPKMdnvJgnJbWqJm9v9WCrW3CzCvN6wZN6HVcHbFZ/X2/DSC_6558-X2.jpg')",
         }}
         aria-hidden="true"
       />
-      {/* Warm gradient overlay */}
+      {/* Lighter gradient overlay — image shows through more, text stays readable */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(135deg, rgba(15,12,8,0.97) 0%, rgba(28,19,10,0.93) 60%, rgba(15,12,8,0.97) 100%)",
+            "linear-gradient(135deg, rgba(15,12,8,0.72) 0%, rgba(28,19,10,0.65) 50%, rgba(15,12,8,0.72) 100%)",
         }}
         aria-hidden="true"
       />
@@ -25,15 +25,15 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto px-5 sm:px-8 py-28 md:py-36">
         <div className="max-w-3xl">
           {/* Eyebrow */}
-          <p className="text-stone-400 text-sm font-semibold tracking-widest uppercase mb-6">
-            East Valley &amp; Scottsdale, AZ
+          <p className="text-brand text-sm font-semibold tracking-widest uppercase mb-6">
+            Phoenix Metro
           </p>
 
           {/* Headline */}
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
             Preserve the Moments
             <br />
-            <span className="text-stone-300">That Matter Most</span>
+            <span className="text-brand">That Matter Most</span>
           </h1>
 
           {/* Subheadline */}
@@ -46,15 +46,15 @@ export default function Hero() {
           {/* USP pills */}
           <div className="flex flex-wrap gap-3 mb-10">
             <div className="flex items-center gap-2 bg-white/8 border border-white/12 text-stone-200 text-sm px-4 py-2 rounded-full">
-              <Clock size={14} className="text-accent/80" />
+              <Clock size={14} className="text-brand" />
               72-hour delivery
             </div>
             <div className="flex items-center gap-2 bg-white/8 border border-white/12 text-stone-200 text-sm px-4 py-2 rounded-full">
-              <Camera size={14} className="text-accent/80" />
-              Nikon D750 · 70-200 f/2.8 · 50 f/1.8
+              <Camera size={14} className="text-brand" />
+              Online Gallery + Download Access
             </div>
             <div className="flex items-center gap-2 bg-white/8 border border-white/12 text-stone-200 text-sm px-4 py-2 rounded-full">
-              <MessageCircle size={14} className="text-accent/80" />
+              <MessageCircle size={14} className="text-brand" />
               Easy, responsive communication
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-accent hover:bg-accent-hover text-white font-semibold text-base transition-colors shadow-lg shadow-black/20"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-semibold text-base transition-colors shadow-lg shadow-black/20"
             >
               Check Availability
               <ArrowRight size={16} />

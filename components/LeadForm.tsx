@@ -52,7 +52,9 @@ export default function LeadForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK;
+  const calLink =
+    process.env.NEXT_PUBLIC_CAL_LINK ||
+    "https://calendar.app.google/tKtXpftAQZSBePW68";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -88,18 +90,18 @@ export default function LeadForm() {
   };
 
   const inputClass = (field: keyof FormData) =>
-    `w-full px-4 py-3 rounded-xl border text-stone-900 text-sm bg-white placeholder-stone-400 transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50 ${
+    `w-full px-4 py-3 rounded-xl border text-stone-900 text-sm bg-white placeholder-stone-400 transition-colors focus:outline-none focus:ring-2 focus:ring-brand/50 ${
       errors[field]
         ? "border-red-400 focus:border-red-400"
-        : "border-stone-200 focus:border-accent"
+        : "border-stone-200 focus:border-brand"
     }`;
 
   if (status === "success") {
     return (
       <section id="contact" className="py-24 bg-stone-950">
         <div className="max-w-xl mx-auto px-5 sm:px-8 text-center">
-          <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
-            <CheckCircle size={32} className="text-accent" />
+          <div className="w-16 h-16 rounded-full bg-brand/20 flex items-center justify-center mx-auto mb-6">
+            <CheckCircle size={32} className="text-brand" />
           </div>
           <h2 className="font-display text-3xl font-bold text-white mb-3">
             You're on the list!
@@ -108,17 +110,15 @@ export default function LeadForm() {
             Thanks for reaching out — I'll follow up within a few hours to
             confirm your details and get your date locked in.
           </p>
-          {calLink && (
-            <a
-              href={calLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 hover:border-accent/60 text-white text-sm font-semibold transition-colors hover:bg-white/5"
-            >
-              <CalendarDays size={16} className="text-accent" />
-              Schedule a Consultation (Optional)
-            </a>
-          )}
+          <a
+            href={calLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 hover:border-brand/60 text-white text-sm font-semibold transition-colors hover:bg-white/5"
+          >
+            <CalendarDays size={16} className="text-brand" />
+            Schedule a 15-Minute Phone Consultation (Optional)
+          </a>
         </div>
       </section>
     );
@@ -130,7 +130,7 @@ export default function LeadForm() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-14 items-start">
           {/* Left copy */}
           <div>
-<p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">
+<p className="text-brand text-sm font-semibold tracking-widest uppercase mb-3">
             Let's Connect
             </p>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-white leading-tight mb-4">
@@ -145,12 +145,12 @@ export default function LeadForm() {
             <div className="space-y-4">
               {[
                 { label: "72-hour delivery", note: "Standard sessions" },
-                { label: "Outdoor & on-location", note: "East Valley + Scottsdale" },
+                { label: "Outdoor & on-location", note: "Phoenix Metro" },
                 { label: "50% deposit to hold your date", note: "Balance due day-of" },
                 { label: "Travel outside metro available", note: "Travel fee applies" },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
                   <div>
                     <span className="text-white text-sm font-medium">{item.label}</span>
                     <span className="text-stone-500 text-sm"> — {item.note}</span>
@@ -158,6 +158,17 @@ export default function LeadForm() {
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-stone-400 text-sm">
+              Prefer a quick call?{" "}
+              <a
+                href={calLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand hover:text-brand-hover font-medium underline underline-offset-2"
+              >
+                Book a 15-minute phone consultation
+              </a>
+            </p>
           </div>
 
           {/* Form */}
@@ -312,7 +323,7 @@ export default function LeadForm() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-accent hover:bg-accent-hover disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-brand hover:bg-brand-hover disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm transition-colors"
             >
               {status === "submitting" ? (
                 <>

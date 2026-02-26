@@ -67,7 +67,7 @@ function buildEmailHtml(data: LeadPayload): string {
       </div>
     </div>
     <div style="padding: 16px 32px; background: #f9f7f4; border-top: 1px solid #e7e5e4;">
-      <p style="margin: 0; font-size: 11px; color: #a8a29e;">Tuhami Photography · photo.tuhamiconsulting.com · East Valley &amp; Scottsdale, AZ</p>
+      <p style="margin: 0; font-size: 11px; color: #a8a29e;">Tuhami Photography · photo.tuhamiconsulting.com · Phoenix Metro</p>
     </div>
   </div>
 </body>
@@ -106,7 +106,7 @@ export async function POST(request: Request) {
       const resend = new Resend(resendKey);
 
       const { error: resendError } = await resend.emails.send({
-        from: "Tuhami Photography <booking@tuhamiconsulting.com>",
+        from: "Tuhami Photography <bookings@mail.tuhamiconsulting.com>",
         to: [toEmail],
         replyTo: data.email,
         subject: `New Lead: ${data.sessionType} — ${data.fullName}`,
@@ -123,6 +123,38 @@ export async function POST(request: Request) {
     }
   } else {
     console.warn("[lead/route] Resend not configured — skipping email.");
+  }
+
+  // ── Append to Google Sheet (optional) ──────────────────────────────────────
+  const sheetUrl = process.env.LEADS_SHEET_URL;
+  if (sheetUrl) {
+    try {
+      const body: Record<string, string> = {
+        fullName: data.fullName,
+        email: data.email,
+        phone: data.phone,
+        sessionType: data.sessionType,
+        preferredLocation: data.preferredLocation ?? "",
+        preferredDate: data.preferredDate,
+        message: data.message ?? "",
+      };
+      const secret = process.env.LEADS_SHEET_SECRET;
+      if (secret) body.secret = secret;
+
+      const res = await fetch(sheetUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        console.error("[lead/route] Google Sheet error:", res.status, text);
+        errors.push("Sheet append failed");
+      }
+    } catch (err) {
+      console.error("[lead/route] Google Sheet exception:", err);
+      errors.push("Sheet service unavailable");
+    }
   }
 
   // ── Insert into Supabase ───────────────────────────────────────────────────

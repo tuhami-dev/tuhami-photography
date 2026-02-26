@@ -17,9 +17,9 @@ const playfair = Playfair_Display({
 });
 
 const siteUrl = "https://photo.tuhamiconsulting.com";
-const siteTitle = "Tuhami Photography | East Valley & Scottsdale Family Photographer";
+const siteTitle = "Tuhami Photography | Phoenix Metro Family Photographer";
 const siteDescription =
-  "Professional family, graduation, and couples photographer serving East Valley and Scottsdale, AZ. 72-hour delivery, pro-grade gear, easy booking. Serving Mesa, Gilbert, Chandler, Tempe & Scottsdale.";
+  "Professional family, graduation, and couples photographer serving the Phoenix Metro. 72-hour delivery, pro-grade gear, easy booking. Serving Mesa, Gilbert, Chandler, Tempe & Scottsdale.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Tuhami Photography – East Valley & Scottsdale Family Photographer",
+        alt: "Tuhami Photography – Phoenix Metro Family Photographer",
       },
     ],
   },

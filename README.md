@@ -1,6 +1,6 @@
 # Tuhami Photography
 
-Premium, mobile-first photography landing page for [Tuhami Photography](https://photo.tuhamiconsulting.com) — serving East Valley & Scottsdale, AZ.
+Premium, mobile-first photography landing page for [Tuhami Photography](https://photo.tuhamiconsulting.com) — serving the Phoenix Metro.
 
 ## Tech Stack
 

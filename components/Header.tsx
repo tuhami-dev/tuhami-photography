@@ -36,7 +36,7 @@ export default function Header() {
             scrolled ? "text-stone-900" : "text-white"
           }`}
         >
-          <Camera size={20} className="text-accent" />
+          <Camera size={20} className="text-brand" />
           <span className="font-display">Tuhami Photography</span>
         </a>
 
@@ -46,7 +46,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
+              className={`text-sm font-medium transition-colors hover:text-brand ${
                 scrolled ? "text-stone-600" : "text-white/80"
               }`}
             >
@@ -58,7 +58,7 @@ export default function Header() {
         {/* Desktop CTA */}
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center px-5 py-2 rounded-full bg-accent hover:bg-accent-hover text-white text-sm font-semibold transition-colors shadow-sm"
+          className="hidden md:inline-flex items-center px-5 py-2 rounded-full bg-brand hover:bg-brand-hover text-white text-sm font-semibold transition-colors shadow-sm"
         >
           Check Availability
         </a>
@@ -84,7 +84,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="py-2.5 text-stone-700 font-medium text-sm border-b border-stone-100 last:border-0 hover:text-accent transition-colors"
+                className="py-2.5 text-stone-700 font-medium text-sm border-b border-stone-100 last:border-0 hover:text-brand transition-colors"
               >
                 {link.label}
               </a>
@@ -93,7 +93,7 @@ export default function Header() {
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block w-full text-center px-5 py-3 rounded-full bg-accent hover:bg-accent-hover text-white text-sm font-semibold transition-colors"
+            className="block w-full text-center px-5 py-3 rounded-full bg-brand hover:bg-brand-hover text-white text-sm font-semibold transition-colors"
           >
             Check Availability
           </a>

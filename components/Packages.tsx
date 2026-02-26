@@ -10,7 +10,7 @@ const packages = [
     features: [
       "30-minute outdoor session",
       "1 location",
-      "Up to 4 people",
+      "Immediate family (up to 4 people)",
       "20+ edited digital images",
       "Online gallery delivery",
       "72-hour turnaround",
@@ -33,7 +33,7 @@ const packages = [
       "Online gallery delivery",
       "72-hour turnaround",
       "Print release included",
-      "Outfit change welcome",
+      "1 outfit change welcome",
     ],
     highlight: true,
     cta: "Book Standard Session",
@@ -64,7 +64,7 @@ export default function Packages() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">
+          <p className="text-brand text-sm font-semibold tracking-widest uppercase mb-3">
             Transparent Pricing
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-white leading-tight mb-4">
@@ -83,12 +83,12 @@ export default function Packages() {
               key={pkg.name}
               className={`relative flex flex-col rounded-2xl p-7 ${
                 pkg.highlight
-                  ? "bg-accent text-white"
+                  ? "bg-brand text-white"
                   : "bg-stone-900 border border-stone-800"
               }`}
             >
               {pkg.highlight && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-accent text-xs font-bold px-4 py-1 rounded-full shadow-md tracking-wide">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-brand text-xs font-bold px-4 py-1 rounded-full shadow-md tracking-wide">
                   MOST POPULAR
                 </span>
               )}
@@ -161,7 +161,7 @@ export default function Packages() {
                 href="#contact"
                 className={`flex items-center justify-center gap-2 py-3 rounded-full font-semibold text-sm transition-colors ${
                   pkg.highlight
-                    ? "bg-white text-accent hover:bg-stone-50"
+                    ? "bg-white text-brand hover:bg-stone-50"
                     : "bg-stone-800 hover:bg-stone-700 text-white border border-stone-700"
                 }`}
               >
@@ -175,7 +175,7 @@ export default function Packages() {
         <p className="text-center text-stone-500 text-sm mt-8">
           All sessions are outdoor / on-location. Custom packages available for
           larger families or extended coverage.{" "}
-          <a href="#contact" className="text-accent hover:text-accent-hover hover:underline">
+          <a href="#contact" className="text-brand hover:text-brand-hover hover:underline">
             Reach out to discuss.
           </a>
         </p>

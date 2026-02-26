@@ -1,124 +1,161 @@
+"use client";
+
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import PortfolioLightbox from "./PortfolioLightbox";
 
-const photos = [
+export type PortfolioImage = { src: string; alt: string };
+
+export type PortfolioPreviewProps = {
+  heroImage: PortfolioImage;
+  images: PortfolioImage[];
+  portfolioHref: string;
+};
+
+const DEFAULT_HERO: PortfolioImage = {
+  src: "https://photos.smugmug.com/People/Branch-Family-Fall-2023/i-v2WStdn/0/MPKMdnvJgnJbWqJm9v9WCrW3CzCvN6wZN6HVcHbFZ/X2/DSC_6558-X2.jpg",
+  alt: "Family laughing together outdoors",
+};
+
+const DEFAULT_IMAGES: PortfolioImage[] = [
   {
-    id: 1,
-    src: "https://images.unsplash.com/photo-1511895426328-dc8714191011?auto=format&fit=crop&w=800&q=80",
-    alt: "Family laughing together outdoors",
-    label: "Family",
+    src: "https://photos.smugmug.com/Weddings/Sara-Gamaleldin/Pre-Wedding/i-nxXrRJF/0/LbCCf2XpVNCwNMDNWJpc9s7BqWcHFzfsFm37526kL/X4/Sarah-Gamaldin-Wedding-2019%20156-25-X4.jpg",
+    alt: "Couple at wedding",
   },
   {
-    id: 2,
-    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
-    alt: "Graduation cap toss",
-    label: "Graduation",
-  },
-  {
-    id: 3,
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80",
-    alt: "Couple portrait outdoors",
-    label: "Couples",
-  },
-  {
-    id: 4,
-    src: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?auto=format&fit=crop&w=800&q=80",
-    alt: "Family at golden hour",
-    label: "Family",
-  },
-  {
-    id: 5,
-    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
-    alt: "Kids playing in the park",
-    label: "Family",
-  },
-  {
-    id: 6,
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
-    alt: "Couple laughing together",
-    label: "Couples",
-  },
-  {
-    id: 7,
-    src: "https://images.unsplash.com/photo-1596265371388-43cedbb5bc6e?auto=format&fit=crop&w=800&q=80",
+    src: "https://photos.smugmug.com/Graduation/Hassan-Sara-Maleh-Graduation/Graduation/i-Phvrctc/0/KMHwxCmGdhCNQSLBp7SQ5rB5fp2VVf3C8jwXRd9kM/X2/HassanSaraMalehGrad%20414-232-X2.jpg",
     alt: "Graduation portrait",
-    label: "Graduation",
   },
   {
-    id: 8,
-    src: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=800&q=80",
-    alt: "Outdoor family session",
-    label: "Family",
+    src: "https://photos.smugmug.com/Cycling/-Jingle-World-Cup-CX-2018/i-HMb3Dhk/0/LvVVWpB6TG28bfmfzjTZ2SdKZj3wjcBPz4QCqjdFD/X3/World%20Cup%20Jingle%20Cross%202018%20579-X3.jpg",
+    alt: "Cyclocross world cup race",
+  },
+  {
+    src: "https://photos.smugmug.com/People/Nayeli-Family/i-5Tv6PRb/0/KNXTzrhDFHCmF6tcFf3Cv3d9kc3vSLgfF9hPLZHzP/X3/Nayeli_McBride_2018-19-X3.jpg",
+    alt: "Toddler in the fall",
+  },
+  {
+    src: "https://photos.smugmug.com/Campus-Groups/WISE-2019/i-3KH2mZW/0/Kj3ZCzvV7wVHmvT7k8F6fW6QHLk6kWgrtGPpHcThW/X4/West-High-Journalism-AnasElTuhami-12-X4.jpg",
+    alt: "Campus group portrait",
+  },
+  {
+    src: "https://photos.smugmug.com/Floof/Holly/i-tVr4CjV/0/NZX76NZ3dGDCSmQPTGX9sg6cH43bcDPMfQwKfPz9t/X4/Holly-Doggo-2018-41-X4.jpg",
+    alt: "Outdoor puppy candid",
   },
 ];
 
-export default function Portfolio() {
+const DEFAULT_PORTFOLIO_HREF = "https://anas.smugmug.com";
+
+export default function Portfolio({
+  heroImage = DEFAULT_HERO,
+  images = DEFAULT_IMAGES,
+  portfolioHref = DEFAULT_PORTFOLIO_HREF,
+}: Partial<PortfolioPreviewProps>) {
+  const hero = heroImage ?? DEFAULT_HERO;
+  const supportingImages = (images ?? DEFAULT_IMAGES).slice(0, 6);
+  const href = portfolioHref ?? DEFAULT_PORTFOLIO_HREF;
+
+  const lightboxImages = [hero, ...supportingImages];
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const openLightbox = useCallback((index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  }, []);
+
+  const closeLightbox = useCallback(() => setLightboxOpen(false), []);
+
   return (
     <section id="portfolio" className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-10">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        {/* Header — unchanged */}
+        <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-<p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">
-            Recent Work
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
+              Recent Work
             </p>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-stone-900 leading-tight">
+            <h2 className="font-display text-4xl font-bold leading-tight text-stone-900 sm:text-5xl">
               Portfolio Preview
             </h2>
           </div>
           <a
-            href="https://anas.smugmug.com"
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-accent hover:text-accent-hover text-sm font-semibold transition-colors shrink-0"
+            className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
           >
             View full portfolio
             <ExternalLink size={14} />
           </a>
         </div>
 
-        {/* Image grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-          {photos.map((photo, index) => (
-            <div
-              key={photo.id}
-              className={`relative overflow-hidden rounded-xl bg-stone-100 group ${
-                index === 0 || index === 4 ? "row-span-2 aspect-[3/4]" : "aspect-square"
-              }`}
+        {/* A) Hero image — full width, 60–75vh desktop, ~50vh mobile, rounded, hover */}
+        <div className="mb-6 sm:mb-8">
+          <button
+            type="button"
+            onClick={() => openLightbox(0)}
+            className="group relative block h-[50vh] w-full overflow-hidden rounded-2xl bg-stone-100 shadow-md transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2 sm:h-[60vh] lg:h-[75vh]"
+            aria-label={`View ${hero.alt} in gallery`}
+          >
+            <Image
+              src={hero.src}
+              alt={hero.alt}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+              sizes="100vw"
+              quality={90}
+            />
+          </button>
+        </div>
+
+        {/* B) Supporting grid — 6 images, 4:5, 3 / 2 / 1 cols, gap 16–24px */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 md:gap-6 lg:grid-cols-3">
+          {supportingImages.map((img, i) => (
+            <button
+              key={`${img.src}-${i}`}
+              type="button"
+              onClick={() => openLightbox(i + 1)}
+              className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-stone-100 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2"
+              aria-label={`View ${img.alt} in gallery`}
             >
               <Image
-                src={photo.src}
-                alt={photo.alt}
+                src={img.src}
+                alt={img.alt}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={90}
               />
-              {/* Label overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                <span className="text-white text-xs font-semibold tracking-wide uppercase bg-black/30 px-2 py-1 rounded-full">
-                  {photo.label}
-                </span>
-              </div>
-            </div>
+            </button>
           ))}
         </div>
 
         {/* CTA */}
         <div className="mt-10 text-center">
           <a
-            href="https://anas.smugmug.com"
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-stone-900 hover:bg-stone-800 text-white font-semibold text-sm transition-colors"
+            className="inline-flex items-center gap-2 rounded-full bg-stone-900 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-stone-800"
           >
             See the Full Portfolio on SmugMug
             <ArrowRight size={15} />
           </a>
-          <p className="text-stone-400 text-xs mt-3">
-            These are sample placeholder images — the full portfolio is on SmugMug.
+          <p className="mt-3 text-xs text-stone-400">
+            View full portfolio on SmugMug for more work.
           </p>
         </div>
       </div>
+
+      <PortfolioLightbox
+        open={lightboxOpen}
+        onClose={closeLightbox}
+        images={lightboxImages}
+        currentIndex={lightboxIndex}
+        onIndexChange={setLightboxIndex}
+      />
     </section>
   );
 }

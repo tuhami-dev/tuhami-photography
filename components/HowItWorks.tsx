@@ -30,7 +30,7 @@ export default function HowItWorks() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <p className="text-accent text-sm font-semibold tracking-widest uppercase mb-3">
+          <p className="text-brand text-sm font-semibold tracking-widest uppercase mb-3">
             The Process
           </p>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-stone-900 leading-tight mb-4">
@@ -57,9 +57,9 @@ export default function HowItWorks() {
                 {/* Number + icon */}
                 <div className="relative mb-6">
                   <div className="w-20 h-20 rounded-2xl bg-white border border-stone-200 shadow-sm flex items-center justify-center">
-                    <Icon size={28} className="text-accent" />
+                    <Icon size={28} className="text-brand" />
                   </div>
-                  <span className="absolute -top-2.5 -right-2.5 w-7 h-7 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center">
+                  <span className="absolute -top-2.5 -right-2.5 w-7 h-7 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center">
                     {step.number.replace("0", "")}
                   </span>
                 </div>
@@ -88,7 +88,7 @@ export default function HowItWorks() {
           </div>
           <a
             href="#contact"
-            className="shrink-0 inline-flex items-center px-6 py-3 rounded-full bg-accent hover:bg-accent-hover text-white font-semibold text-sm transition-colors"
+            className="shrink-0 inline-flex items-center px-6 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-semibold text-sm transition-colors"
           >
             Check Availability
           </a>
