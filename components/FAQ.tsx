@@ -51,7 +51,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           }
         }}
         aria-expanded={open}
-        className="group w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer rounded-sm transition-colors duration-200 ease-out hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
+        className="group w-full flex items-center justify-between gap-4 px-4 py-5 text-left cursor-pointer rounded-sm transition-colors duration-200 ease-out hover:bg-stone-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
       >
         <span className="font-semibold text-stone-900 text-base pr-4 transition-colors duration-200 ease-out group-hover:text-stone-700">
           {question}
@@ -68,7 +68,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
           open ? "max-h-64 pb-5" : "max-h-0"
         }`}
       >
-        <p className="text-stone-500 text-base leading-relaxed">{answer}</p>
+        <p className="px-4 text-stone-500 text-base leading-relaxed">{answer}</p>
       </div>
     </div>
   );
