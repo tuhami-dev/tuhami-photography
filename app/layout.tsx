@@ -130,6 +130,15 @@ const jsonLd = {
   sameAs: ["https://anas.smugmug.com"],
 };
 
+const GA_MEASUREMENT_ID = "G-10MGYJPCMR";
+
+const gaInlineScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_MEASUREMENT_ID}');
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -138,6 +147,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{ __html: gaInlineScript }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
