@@ -62,7 +62,6 @@ function ServiceCard({ src, alt, title, description, featured, tall }: ServiceIt
         "group relative overflow-hidden rounded-2xl bg-stone-900",
         "shadow-md ring-1 ring-black/10",
         "transform-gpu will-change-transform",
-        "transition-transform duration-300 ease-out hover:-translate-y-0.5",
         aspectClass,
       ].join(" ")}
     >

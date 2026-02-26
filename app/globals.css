@@ -8,9 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* Single brand blue (#4F86C6) — hero text, CTAs, links, accents */
-  --color-brand: #4F86C6;
-  --color-brand-hover: #6b9dd4;
+  /* Primary brand blue: hero text, CTAs, links, accents */
+  --color-brand: #2F5EA8;
+  --color-brand-hover: #254C8A;
   --color-accent: var(--color-brand);
   --color-accent-hover: var(--color-brand-hover);
   --color-accent-link: var(--color-brand);
