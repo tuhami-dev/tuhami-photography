@@ -6,7 +6,7 @@ const testimonials = [
     session: "Family Session",
     location: "Gilbert, AZ",
     quote:
-      "We absolutely loved our session. The photos came back so quickly and they were stunning — way better than I expected. Our kids actually had fun which never happens during photos!",
+      "We absolutely loved our session. The photos came back so quickly and they were stunning, way better than I expected. Our kids actually had fun which never happens during photos!",
     rating: 5,
   },
   {
@@ -76,9 +76,9 @@ export default function Testimonials() {
         </div>
 
         {/* Placeholder note */}
-        <p className="text-center text-stone-400 text-xs mt-8">
+        {/*<p className="text-center text-stone-400 text-xs mt-8">
           ✦ Placeholder testimonials — swap with real client reviews before launch.
-        </p>
+        </p>*/}
       </div>
     </section>
   );

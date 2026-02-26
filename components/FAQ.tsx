@@ -25,14 +25,14 @@ const faqs = [
       "Fill out the inquiry form below with your session type, preferred date, and location preferences. We'll follow up to confirm details. A 50% deposit is required to hold your date — the remaining balance is due the day of your session.",
   },
   {
-    question: "Do you travel outside the East Valley?",
+    question: "Do you travel outside the Phoenix Metro?",
     answer:
-      "Standard pricing covers the Phoenix metro area (Mesa, Gilbert, Chandler, Tempe, Scottsdale, and surrounding areas). Travel outside the metro is available for a travel fee — reach out and we'll put together a custom quote.",
+      "Standard pricing includes locations within 20 miles of Tempe, AZ. Sessions beyond that radius are subject to an additional $0.75 per mile (round trip) travel fee.",
   },
   {
     question: "What is the payment structure?",
     answer:
-      "A 50% non-refundable deposit is required at the time of booking to hold your session date. The remaining 50% is due the day of the session. We accept payment via Venmo, Zelle, or cash.",
+      "A 50% non-refundable deposit is required at booking to secure your session date. The remaining balance is due on or before the session date. Invoices are sent electronically and may be paid securely via credit or debit card.",
   },
 ];
 
