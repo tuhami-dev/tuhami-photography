@@ -13,14 +13,14 @@ const steps = [
     icon: CalendarCheck,
     title: "Confirm the Details",
     description:
-      "We'll follow up quickly to confirm the location, time, and what to expect. A 50% deposit holds your date — the remainder is due day-of.",
+      "A 50% non-refundable deposit invoice will be sent to secure your session date. The remaining balance is due 48 hours before your session.",
   },
   {
     number: "03",
     icon: ImageIcon,
     title: "Shoot & Receive Your Gallery",
     description:
-      "Show up, be yourself. Within 72 hours of your session (1 week for events), your edited gallery is delivered online — ready to download and print.",
+      "Show up, be yourself. Within 72 hours of your session (1 week for events), your edited online gallery will be delivered — ready to download and print. Final gallery delivery occurs once any remaining balance has been completed.",
   },
 ];
 

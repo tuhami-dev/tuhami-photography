@@ -71,8 +71,7 @@ export default function Packages() {
             Simple, Clear Packages
           </h2>
           <p className="text-stone-400 text-lg leading-relaxed">
-            No hidden fees, no confusing bundles. A 50% deposit confirms your
-            date — the remaining balance is due the day of your session.
+          A 50% non-refundable deposit secures your date — the remaining balance is due 48 hours before your session.
           </p>
         </div>
 
@@ -172,13 +171,18 @@ export default function Packages() {
           ))}
         </div>
 
-        <p className="text-center text-stone-500 text-sm mt-8">
-          All sessions are outdoor / on-location. Custom packages available for
-          larger families or extended coverage.{" "}
-          <a href="#contact" className="text-brand hover:text-brand-hover hover:underline">
-            Reach out to discuss.
-          </a>
-        </p>
+        <div className="text-center mt-8 space-y-2">
+          <p className="text-stone-500 text-sm">
+            All sessions are outdoor / on-location. Custom packages available for
+            larger families or extended coverage.{" "}
+            <a href="#contact" className="text-brand hover:text-brand-hover hover:underline">
+              Reach out to discuss.
+            </a>
+          </p>
+          <p className="text-stone-600 text-xs">
+            A signed agreement and deposit are required to confirm all bookings. Additional time or services requested will be invoiced separately.
+          </p>
+        </div>
       </div>
     </section>
   );
