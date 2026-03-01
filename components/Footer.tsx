@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
             <p className="text-stone-400 text-sm leading-relaxed max-w-xs">
               Premium family, graduation, and couples photography in the Phoenix
-              Metro. 72-hour delivery. Pro-grade gear. Easy
+              Metro. Galleries delivered within 3–7 business days. Pro-grade gear. Easy
               booking.
             </p>
             <a

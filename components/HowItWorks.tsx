@@ -20,7 +20,7 @@ const steps = [
     icon: ImageIcon,
     title: "Shoot & Receive Your Gallery",
     description:
-      "Show up, be yourself. Within 72 hours of your session (1 week for events), your edited online gallery will be delivered — ready to download and print. Final gallery delivery occurs once any remaining balance has been completed.",
+      "Show up, be yourself. Your edited gallery will be delivered within 3–7 business days for portrait sessions (1–2 weeks for events) — ready to download and print once the remaining balance has been completed.",
   },
 ];
 

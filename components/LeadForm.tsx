@@ -144,7 +144,7 @@ export default function LeadForm() {
 
             <div className="space-y-4">
               {[
-                { label: "72-hour delivery", note: "Standard sessions" },
+                { label: "Delivered within 3–7 business days", note: "Standard sessions" },
                 { label: "Outdoor & on-location", note: "Phoenix Metro" },
                 { label: "50% deposit to hold your date", note: "Balance due day-of" },
                 { label: "Travel outside metro available", note: "Travel fee applies" },

@@ -47,7 +47,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-3 mb-10">
             <div className="flex items-center gap-2 bg-white/8 border border-white/12 text-stone-200 text-sm px-4 py-2 rounded-full">
               <Clock size={14} className="text-brand" />
-              72-hour delivery
+              Fast, professional delivery
             </div>
             <div className="flex items-center gap-2 bg-white/8 border border-white/12 text-stone-200 text-sm px-4 py-2 rounded-full">
               <Camera size={14} className="text-brand" />

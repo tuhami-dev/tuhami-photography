@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "What's the turnaround time?",
     answer:
-      "Standard sessions (Mini and Standard) are delivered within 72 hours of your shoot — often sooner. Event coverage is delivered within 1 week. You'll receive a private online gallery link to download your full resolution images.",
+      "Standard sessions are typically delivered within 3–7 business days of your session — often sooner. Event coverage is delivered within 1-2 weeks. You'll receive a private online gallery link to download your full resolution images.",
   },
   {
     question: "What should we wear?",
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Do you travel outside the Phoenix Metro?",
     answer:
-      "Standard pricing includes locations within 20 miles of Tempe, AZ. Sessions beyond that radius are subject to an additional $0.75 per mile (round trip) travel fee.",
+      "Standard pricing includes locations within 10 miles of Tempe, AZ (one way). Sessions beyond that radius are subject to an additional $0.75 per mile (round trip) travel fee.",
   },
   {
     question: "What is the payment structure?",
