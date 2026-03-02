@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 import { AnnouncementBarWithProvider } from "@/components/AnnouncementBar";
+import { faqs } from "@/lib/faqs";
+import { packages } from "@/lib/packages";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -70,65 +72,61 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const professionalServiceJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@type": "ProfessionalService",
   name: "Tuhami Photography",
-  description: siteDescription,
   url: siteUrl,
+  telephone: "+14804012453",
   image: `${siteUrl}/og-image.jpg`,
   priceRange: "$$",
+  serviceType: [
+    "Photography",
+    "Portrait Photography",
+    "Family Photography",
+    "Graduation Photography",
+    "Couples Photography",
+    "Event Photography",
+  ],
+  areaServed: ["Phoenix", "Tempe", "Mesa", "Gilbert", "Chandler", "Scottsdale"],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Mesa",
+    addressLocality: "Tempe",
     addressRegion: "AZ",
-    postalCode: "85201",
     addressCountry: "US",
   },
-  areaServed: [
-    { "@type": "City", "name": "Mesa" },
-    { "@type": "City", "name": "Gilbert" },
-    { "@type": "City", "name": "Chandler" },
-    { "@type": "City", "name": "Tempe" },
-    { "@type": "City", "name": "Scottsdale" },
-  ],
+  sameAs: ["https://anas.smugmug.com"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Photography Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Mini Session",
-          description: "30-minute photography session",
-        },
-        price: "225",
-        priceCurrency: "USD",
+    name: "Photography Packages",
+    itemListElement: packages.map((pkg) => ({
+      "@type": "Offer",
+      name: pkg.name,
+      description: `${pkg.description} ${pkg.features.slice(0, 3).join(". ")}.`,
+      priceCurrency: "USD",
+      price: pkg.price.replace("$", ""),
+      url: siteUrl,
+      category: pkg.name,
+      availability: "https://schema.org/InStock",
+      eligibleRegion: {
+        "@type": "Place",
+        name: "Phoenix Metro (Tempe, Phoenix, Mesa, Gilbert, Chandler, Scottsdale)",
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Standard Session",
-          description: "60-minute photography session",
-        },
-        price: "350",
-        priceCurrency: "USD",
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Event Coverage",
-          description: "Full event photography coverage",
-        },
-        price: "900",
-        priceCurrency: "USD",
-      },
-    ],
+    })),
   },
-  sameAs: ["https://anas.smugmug.com"],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
 };
 
 const GA_MEASUREMENT_ID = "G-10MGYJPCMR";
@@ -157,7 +155,11 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body className={`${geistSans.variable} ${playfair.variable} antialiased`}>

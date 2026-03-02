@@ -30,17 +30,21 @@ export default function Hero() {
           </p>
 
           {/* Headline */}
-          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6">
-            Preserve the Moments
-            <br />
-            <span className="text-brand">That Matter Most</span>
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-3">
+            Phoenix Family Photographer
           </h1>
+
+          {/* Secondary headline */}
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-white leading-[1.15] tracking-tight mb-6">
+            Preserve the Moments{" "}
+            <span className="text-brand">That Matter Most</span>
+          </h2>
 
           {/* Subheadline */}
           <p className="text-stone-300 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl">
-            Family sessions, graduations, couples &amp; events — professionally
-            captured with care and delivered fast. Serving Mesa, Gilbert,
-            Chandler, Tempe &amp; Scottsdale.
+            Natural, timeless photography for families, couples &amp; graduates
+            — serving Phoenix, Mesa, Gilbert, Chandler, Tempe &amp; Scottsdale
+            with fast delivery and a seamless experience.
           </p>
 
           {/* USP pills */}

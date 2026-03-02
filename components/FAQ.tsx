@@ -2,39 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-const faqs = [
-  {
-    question: "Do you have a studio?",
-    answer:
-      "No — all sessions are outdoor and on-location. East Valley has incredible natural backdrops: desert landscapes, parks, green belts, and urban settings in Scottsdale. We'll work together to find a spot that fits your vision and vibe.",
-  },
-  {
-    question: "What's the turnaround time?",
-    answer:
-      "Standard sessions are typically delivered within 3–7 business days of your session — often sooner. Event coverage is delivered within 1-2 weeks. You'll receive a private online gallery link to download your full resolution images.",
-  },
-  {
-    question: "What should we wear?",
-    answer:
-      "Coordinated, not matching. Think about a main color palette (2–3 tones) and vary the textures and styles within it. Avoid busy logos or patterns that date quickly. When in doubt, earth tones and neutrals photograph beautifully — especially in Arizona's natural light.",
-  },
-  {
-    question: "How do we book?",
-    answer:
-      "Fill out the inquiry form below with your session type, preferred date, and location preferences. We'll follow up to confirm details. A 50% deposit is required to hold your date — the remaining balance is due the day of your session.",
-  },
-  {
-    question: "Do you travel outside the Phoenix Metro?",
-    answer:
-      "Standard pricing includes locations within 10 miles of Tempe, AZ (one way). Sessions beyond that radius are subject to an additional $0.75 per mile (round trip) travel fee.",
-  },
-  {
-    question: "What is the payment structure?",
-    answer:
-      "A 50% non-refundable deposit is required at booking to secure your session date. The remaining balance is due on or before the session date. Invoices are sent electronically and may be paid securely via credit or debit card.",
-  },
-];
+import { faqs } from "@/lib/faqs";
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
