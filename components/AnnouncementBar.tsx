@@ -50,7 +50,7 @@ export function AnnouncementBarWithProvider({
           <div className="flex flex-1 flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-center text-xs sm:text-sm">
             <span>
               🎉 Launch Special: $50 off Full Sessions — First 5 bookings before
-              March 30.
+              April 30.
             </span>
             <a
               href="#contact"
